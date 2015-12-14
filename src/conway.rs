@@ -46,3 +46,9 @@ fn test_generation_is_cell__alive() {
     let generation: Generation = Generation::new(vec![vec![LifeIndicator::Alive]], 1);
     assert!(generation.cell_alive(0, 0));
 }
+
+#[test]
+fn test_generation_is_cell__alive() {
+    let generation: Generation = Generation::new(vec![vec![LifeIndicator::Dead]], 1);
+    assert!(generation.cell_alive(0, 0) == false);
+}

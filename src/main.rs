@@ -20,13 +20,15 @@ fn main() {
         Ok(_) => (),
     }
 
-    let world_map = s.split("\n").map(|line| line.chars()
-        .map(|character| match character {
-            '*' => conway::LifeIndicator::Alive,
-            '_' => conway::LifeIndicator::Dead,
-            _ => panic!("Wrong cell value"),
-        }).collect()
-    ).collect();
+    let world_map = s.split("\n")
+        .map(|line| line.chars()
+            .map(|character| match character {
+                '*' => conway::LifeIndicator::Alive,
+                '_' => conway::LifeIndicator::Dead,
+                _ => panic!("Wrong cell value"),
+            })
+            .collect())
+        .collect();
 
     let generation = conway::Generation::new(world_map, 1);
     generation.print_world();
