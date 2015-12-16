@@ -18,9 +18,9 @@ impl Generation {
     }
 
     pub fn cell_alive(&self, x: usize, y: usize) -> bool {
-        match &self.world_map[x][y] {
-            &LifeIndicator::Alive => true,
-            &LifeIndicator::Dead => false,
+        match *&self.world_map[x][y] {
+            LifeIndicator::Alive => true,
+            LifeIndicator::Dead => false,
         }
     }
 
@@ -35,9 +35,9 @@ impl Generation {
     }
 
     fn print_cell(&self, cell: &LifeIndicator) {
-        match cell {
-            &LifeIndicator::Alive => print!("*"),
-            &LifeIndicator::Dead => print!("_"),
+        match *cell {
+            LifeIndicator::Alive => print!("*"),
+            LifeIndicator::Dead => print!("_"),
         }
     }
 
